@@ -1,213 +1,157 @@
-Welcome to your new TanStack Start app! 
+# 🚀 TanStack Start Enterprise Template
 
-# Getting Started
+A modern, production-ready, and highly opinionated full-stack starter template built on **TanStack Start**, **React 19**, and **Vite**. It's designed for maximum type safety, developer experience, and performance, leveraging the power of the **Bun** ecosystem.
 
-To run this application:
+## ✨ Features
+
+- **Full-Stack React**: Powered by [TanStack Start](https://tanstack.com/start) (Router + Query + SSR + Server Functions).
+- **React 19 Ready**: Utilizing the new [React Compiler](https://react.dev/learn/react-compiler) for automatic memoization and performance optimizations.
+- **Modern Styling**: [Tailwind CSS v4](https://tailwindcss.com/) combined with highly customizable [Shadcn UI](https://ui.shadcn.com/) / Base UI components.
+- **Type-Safe Database**: [Drizzle ORM](https://orm.drizzle.team/) with PostgreSQL for robust, fully-typed database interactions.
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/) for simple, scalable, and type-safe global state.
+- **Internationalization (i18n)**: [Paraglide JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs) for fully type-safe, zero-runtime-overhead translations.
+- **Error Tracking**: Built-in [Sentry](https://sentry.io/) integration for React and Server components.
+- **Blazing Fast Tooling**: Built on [Vite](https://vitejs.dev/) and powered by [Bun](https://bun.sh/) for lightning-fast installs and execution.
+- **Docker Ready**: Pre-configured `Dockerfile` and `compose.yml` for seamless deployment.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+| --- | --- |
+| **Framework** | [TanStack Start](https://tanstack.com/start), React 19, [Nitro](https://nitro.unjs.io/) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS v4, Lucide Icons, Framer Motion |
+| **UI Components** | Shadcn UI, Base UI, Radix UI Primitives |
+| **Database** | Drizzle ORM, PostgreSQL |
+| **State Management**| Zustand, TanStack Query |
+| **Tooling** | Vite, Bun, ESLint, Prettier, Vitest |
+| **i18n** | Paraglide JS |
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── messages/               # i18n translation files (en.json, de.json, etc.)
+├── project.inlang/         # Paraglide JS configuration
+├── public/                 # Static assets
+├── src/
+│   ├── db/                 # Drizzle ORM schema and database client
+│   ├── integrations/       # Third-party integrations (e.g., TanStack Devtools)
+│   ├── lib/                # Utility functions
+│   ├── routes/             # TanStack Router file-based routing
+│   ├── shared/             # Shared application logic
+│   │   ├── stores/         # Zustand state stores
+│   │   ├── styles/         # Global and theme CSS
+│   │   ├── types/          # Global TypeScript definitions
+│   │   ├── ui/             # Reusable UI components (Shadcn/Base UI)
+│   │   └── utils/          # Shared utilities
+│   ├── widgets/            # Complex, feature-specific components and providers
+│   └── router.tsx          # TanStack Router initialization
+├── .env.example            # Environment variables template
+├── components.json         # Shadcn UI configuration
+├── drizzle.config.ts       # Drizzle ORM configuration
+├── instrument.server.mjs   # Sentry server instrumentation
+└── vite.config.ts          # Vite configuration (React Compiler, Nitro, Tailwind v4)
+```
+
+---
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+- [Bun](https://bun.sh/) (Recommended) or Node.js >= 20
+- PostgreSQL (Local instance or Docker)
+
+### 1. Clone & Install
 
 ```bash
+# Install dependencies using Bun
 bun install
-bun --bun run dev
 ```
 
-# Building For Production
+### 2. Environment Variables
 
-To build this application for production:
+Copy the example environment file and configure your local variables:
 
 ```bash
-bun --bun run build
+cp .env.example .env.local
 ```
 
-## Testing
+Make sure to update the database connection string and any Sentry/API keys in `.env.local`.
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+### 3. Database Setup
+
+Generate and apply Drizzle migrations to your local PostgreSQL database:
 
 ```bash
-bun --bun run test
+bun run db:generate
+bun run db:migrate
+
+# Alternatively, if you want to push the schema directly:
+bun run db:push
 ```
 
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `bun install @tailwindcss/vite tailwindcss -D`
-
-## Linting & Formatting
-
-
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+To view and manage your data, you can launch Drizzle Studio:
 
 ```bash
-bun --bun run lint
-bun --bun run format
-bun --bun run check
+bun run db:studio
 ```
 
+### 4. Run the Development Server
 
-# Paraglide i18n
+Start the Vite development server with hot module replacement (HMR):
 
-This add-on wires up ParaglideJS for localized routing and message formatting.
-
-- Messages live in `project.inlang/messages`.
-- URLs are localized through the Paraglide Vite plugin and router `rewrite` hooks.
-- Run the dev server or build to regenerate the `src/paraglide` outputs.
-
-
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
+```bash
+bun run dev
 ```
 
-Then anywhere in your JSX you can use it like so:
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-```tsx
-<Link to="/about">About</Link>
+---
+
+## 📜 Available Scripts
+
+- `bun run dev`: Starts the development server.
+- `bun run build`: Builds the application for production.
+- `bun run start`: Runs the compiled production server.
+- `bun run preview`: Locally previews the production build.
+- `bun run test`: Runs the Vitest test suite.
+- `bun run lint`: Runs ESLint.
+- `bun run format`: Checks code formatting with Prettier.
+- `bun run check`: Runs TypeScript type checking.
+- `bun run db:*`: Drizzle ORM commands (`generate`, `migrate`, `push`, `pull`, `studio`).
+
+---
+
+## 🌐 Internationalization (i18n)
+
+This template uses **Paraglide JS** for type-safe internationalization.
+- Translation files are located in the `messages/` directory (e.g., `en.json`, `de.json`).
+- When you update the JSON files, Paraglide automatically generates type-safe getter functions.
+- The active locale is managed via the URL or base settings configured in `vite.config.ts`.
+
+---
+
+## 🐳 Docker Deployment
+
+The project includes a ready-to-use `Dockerfile` and `compose.yml` for containerized deployments.
+
+To build and run the application using Docker Compose:
+
+```bash
+docker compose up --build -d
 ```
 
-This will create a link that will navigate to the `/about` route.
+The app will be exposed on port `3000` (configurable in `compose.yml`).
 
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+---
 
-### Using A Layout
+## 🛡️ License
 
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+This project is licensed under the MIT License.
